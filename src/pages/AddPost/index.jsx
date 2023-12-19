@@ -34,7 +34,7 @@ export const AddPost = () => {
       const formData = new FormData()
       const file = e.target.files[0]
       formData.append('image', file)
-      const { data } = await axios.post('http://localhost:3002/upload', formData, {
+      const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/upload`, formData, {
         headers: {
           'Authorization': window.localStorage.getItem('token'),
         },
@@ -55,7 +55,7 @@ export const AddPost = () => {
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:3002/posts/${id}`).then(({ data }) => {
+      axios.get(`${process.env.REACT_APP_API_URL}/posts/${id}`).then(({ data }) => {
         setTitle(data.title)
         setText(data.text)
         setTags(data.tags.join(', '))
@@ -110,7 +110,7 @@ export const AddPost = () => {
           <Button variant="contained" color="error" onClick={onClickRemoveImage}>
             Удалить
           </Button>
-          <img className={styles.image} src={`http://localhost:3002${imageUrl}`} alt="Uploaded" />
+          <img className={styles.image} src={`${process.env.REACT_APP_API_URL}${imageUrl}`} alt="Uploaded" />
         </>)}
       <br />
       <br />
