@@ -39,7 +39,7 @@ export const Index = () => {
       <div className={styles.root}>
         <Avatar
           classes={{ root: styles.avatar }}
-          src={me.avatarUrl}
+          src={me ? me.avatarUrl : ''}
         />
         <div className={styles.form}>
           <TextField
