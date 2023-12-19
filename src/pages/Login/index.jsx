@@ -30,7 +30,7 @@ export const Login = () => {
       triger();
       navigate('/');
     }
-  }, [data, navigate]);
+  }, [data]);
 
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
