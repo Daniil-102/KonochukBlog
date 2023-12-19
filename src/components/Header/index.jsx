@@ -4,7 +4,7 @@ import styles from './Header.module.scss';
 import Container from '@mui/material/Container';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { useLazyGetMeQuery, useLogoutMutation } from '../../redux/auth/auth.api';
+import { useLogoutMutation } from '../../redux/auth/auth.api';
 import { changeAuth } from '../../redux/slices';
 
 
@@ -14,14 +14,13 @@ export const Header = () => {
   const isAuth = useSelector(state => state.auth.isAuth.payload)
   const dispatch = useDispatch()
   const [logout] = useLogoutMutation();
-  const [triger] = useLazyGetMeQuery()
 
   const onClickLogout = async () => {
     try {
       await logout();
       window.localStorage.removeItem('token')
       dispatch(changeAuth(false))
-      triger()
+      window.location.reload()
 
     } catch (error) { }
   };
