@@ -25,7 +25,9 @@ export const Registration = () => {
     const data = {
       fullName: name,
       password: pass,
-      email
+      email,
+      avatarUrl: imageUrl
+
     }
     await register(data)
     if (!error?.data) {
@@ -33,6 +35,7 @@ export const Registration = () => {
       setEmail('')
       setPass('')
       setName('')
+      setImageUrl('')
       navigate('/login')
     }
 
