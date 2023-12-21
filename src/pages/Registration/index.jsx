@@ -21,14 +21,23 @@ export const Registration = () => {
   const [imageUrl, setImageUrl] = useState('')
 
   const handleClick = async () => {
-
-    const data = {
-      fullName: name,
-      password: pass,
-      email,
-      avatarUrl: imageUrl
-
+    let data
+    if (imageUrl !== '') {
+      data = {
+        fullName: name,
+        password: pass,
+        email,
+        avatarUrl: imageUrl
+      }
+    } else {
+      data = {
+        fullName: name,
+        password: pass,
+        email,
+      }
     }
+
+
     await register(data)
     if (!error?.data) {
 
