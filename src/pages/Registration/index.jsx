@@ -61,7 +61,7 @@ export const Registration = () => {
         Создание аккаунта
       </Typography>
       <div className={styles.avatar}>
-        <Avatar onClick={() => inputFileRef.current.click()} src={imageUrl || null} sx={{ width: 100, height: 100 }} />
+        <Avatar onClick={() => inputFileRef.current.click()} src={imageUrl || null} style={{ margin: '0 auto' }} sx={{ width: 100, height: 100 }} />
         {imageUrl && (<Button variant="contained" color="error" onClick={onClickRemoveImage}>
           Удалить
         </Button>)}
