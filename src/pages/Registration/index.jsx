@@ -75,7 +75,7 @@ export const Registration = () => {
           height: 100,
           margin: '0 auto',
           cursor: 'pointer',
-          ...(imageUrl && { marginBottom: '30px' })
+          ...(imageUrl && { marginBottom: '20px' })
         }} />
         {imageUrl && (<Button variant="contained" color="error" onClick={onClickRemoveImage}>
           Удалить
