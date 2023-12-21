@@ -7,6 +7,7 @@ import Avatar from '@mui/material/Avatar';
 import { useNavigate } from 'react-router-dom'
 import styles from './Login.module.scss';
 import { useRegisterMutation } from '../../redux/auth/auth.api';
+import axios from 'axios';
 
 export const Registration = () => {
 
