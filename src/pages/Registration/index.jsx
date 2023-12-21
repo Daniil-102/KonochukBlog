@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
@@ -16,8 +16,11 @@ export const Registration = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
+  const inputFileRef = useRef(null)
+  const [imageUrl, setImageUrl] = useState('')
 
   const handleClick = async () => {
+
     const data = {
       fullName: name,
       password: pass,
@@ -33,6 +36,21 @@ export const Registration = () => {
     }
 
   }
+  const handleChangeFile = async (e) => {
+    try {
+      const formData = new FormData()
+      const file = e.target.files[0]
+      formData.append('image', file)
+      const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/upload`, formData, {
+        headers: {
+          'Authorization': window.localStorage.getItem('token'),
+        },
+      });
+      setImageUrl(data.url)
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Paper elevation={0} classes={{ root: styles.root }}>
@@ -40,8 +58,9 @@ export const Registration = () => {
         Создание аккаунта
       </Typography>
       <div className={styles.avatar}>
-        <Avatar sx={{ width: 100, height: 100 }} />
+        <Avatar onClick={() => inputFileRef.current.click()} src={imageUrl || ''} sx={{ width: 100, height: 100 }} />
       </div>
+      <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden />
       <TextField value={name} onChange={e => setName(e.target.value)} className={styles.field} label="Полное имя" fullWidth />
       <TextField value={email} onChange={e => setEmail(e.target.value)} className={styles.field} label="E-Mail" fullWidth />
       <TextField value={pass} onChange={e => setPass(e.target.value)} className={styles.field} label="Пароль" fullWidth />
