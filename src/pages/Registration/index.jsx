@@ -61,7 +61,7 @@ export const Registration = () => {
         Создание аккаунта
       </Typography>
       <div className={styles.avatar}>
-        <Avatar onClick={() => inputFileRef.current.click()} src={imageUrl || ''} sx={{ width: 100, height: 100 }} />
+        <Avatar onClick={() => inputFileRef.current.click()} src={imageUrl} sx={{ width: 100, height: 100 }} />
       </div>
       <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden />
       <TextField value={name} onChange={e => setName(e.target.value)} className={styles.field} label="Полное имя" fullWidth />
