@@ -40,6 +40,9 @@ export const Registration = () => {
     }
 
   }
+  const onClickRemoveImage = () => {
+    setImageUrl('')
+  };
   const handleChangeFile = async (e) => {
     try {
       const formData = new FormData()
@@ -58,7 +61,10 @@ export const Registration = () => {
         Создание аккаунта
       </Typography>
       <div className={styles.avatar}>
-        <Avatar onClick={() => inputFileRef.current.click()} src={imageUrl} sx={{ width: 100, height: 100 }} />
+        <Avatar onClick={() => inputFileRef.current.click()} src={imageUrl || null} sx={{ width: 100, height: 100 }} />
+        {imageUrl && (<Button variant="contained" color="error" onClick={onClickRemoveImage}>
+          Удалить
+        </Button>)}
       </div>
       <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden />
       <TextField value={name} onChange={e => setName(e.target.value)} className={styles.field} label="Полное имя" fullWidth />
