@@ -70,7 +70,13 @@ export const Registration = () => {
         Создание аккаунта
       </Typography>
       <div className={styles.avatar}>
-        <Avatar onClick={() => inputFileRef.current.click()} src={imageUrl || null} style={{ margin: '0 auto' }} sx={{ width: 100, height: 100 }} />
+        <Avatar onClick={() => inputFileRef.current.click()} src={imageUrl} sx={{
+          width: 100,
+          height: 100,
+          margin: '0 auto',
+          cursor: 'pointer',
+          ...(imageUrl && { marginBottom: '30px' })
+        }} />
         {imageUrl && (<Button variant="contained" color="error" onClick={onClickRemoveImage}>
           Удалить
         </Button>)}
