@@ -50,7 +50,6 @@ export const Registration = () => {
       console.log(err);
     }
   };
-  console.log('data', data);
   console.log('image', imageUrl);
 
   return (
