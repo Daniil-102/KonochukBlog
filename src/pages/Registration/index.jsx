@@ -50,6 +50,8 @@ export const Registration = () => {
       console.log(err);
     }
   };
+  console.log('data', data);
+  console.log('image', imageUrl);
 
   return (
     <Paper elevation={0} classes={{ root: styles.root }}>
