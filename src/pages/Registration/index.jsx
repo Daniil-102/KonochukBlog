@@ -72,7 +72,7 @@ export const Registration = () => {
       <div className={styles.avatar}>
         {imageUrl ?
           <div className={styles.avatar__div}>
-            <img src={imageUrl} alt="image Url" className={classes.avatar_img} />
+            <img src={imageUrl} alt="image Url" className={styles.avatar_img} />
           </div>
           : <Avatar onClick={() => inputFileRef.current.click()} sx={{
             width: 100,
