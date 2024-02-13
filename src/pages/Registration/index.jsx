@@ -57,8 +57,12 @@ export const Registration = () => {
       const formData = new FormData()
       const file = e.target.files[0]
       formData.append('image', file)
-      const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/upload`, formData);
-      setImageUrl(process.env.REACT_APP_API_URL + data.url)
+      const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/upload`, formData, {
+        headers: {
+          'Authorization': window.localStorage.getItem('token'),
+        },
+      });
+      setImageUrl(data.url)
     } catch (err) {
       console.log(err);
     }
