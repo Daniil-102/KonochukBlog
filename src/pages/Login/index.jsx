@@ -7,7 +7,7 @@ import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import { changeAuth } from '../../redux/slices/index'
-import styles from "../Registration/Login.module.scss";
+import styles from "./Login.module.scss";
 import { useLazyGetMeQuery, useLoginMutation } from "../../redux/auth/auth.api";
 import { useLazyGetPostsQuery } from "../../redux/posts/post.api";
 
