@@ -5,6 +5,7 @@ import { Index } from "../components/AddComment";
 import { CommentsBlock } from "../components/CommentsBlock";
 import { useParams } from "react-router-dom";
 import { useGetPostQuery, } from "../redux/posts/post.api";
+import ReactMarkdown from 'react-markdown';
 
 export const FullPost = () => {
 
@@ -30,7 +31,7 @@ export const FullPost = () => {
         isFullPost
       >
         <p>
-          {post.text}
+          <ReactMarkdown children={post.text} />
         </p>
       </Post>
 
