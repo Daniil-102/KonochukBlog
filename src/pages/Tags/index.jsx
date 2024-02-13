@@ -31,7 +31,7 @@ export const Tags = () => {
                 key={post._id}
                 id={post._id}
                 title={post.title}
-                  imageUrl={post.imageUrl ? `${process.env.REACT_APP_API_URL}${post.imageUrl}` : ''}
+                imageUrl={post.imageUrl ? `${process.env.REACT_APP_API_URL}${post.imageUrl}` : ''}
                 user={post.user}
                 createdAt={post.createdAt}
                 viewsCount={post.viewsCount}
@@ -46,17 +46,17 @@ export const Tags = () => {
             items={[
               {
                 user: {
-                  fullName: 'Вася Пупкин',
+                  fullName: 'Michail Berezov',
                   avatarUrl: 'https://mui.com/static/images/avatar/1.jpg',
                 },
-                text: 'Это тестовый комментарий',
+                text: 'Nice. Great to hear you again',
               },
               {
                 user: {
-                  fullName: 'Иван Иванов',
+                  fullName: 'Yan Nepomniatsiy',
                   avatarUrl: 'https://mui.com/static/images/avatar/2.jpg',
                 },
-                text: 'When displaying three lines or more, the avatar is not aligned at the top. You should set the prop to align the avatar at the top',
+                text: 'Controller approach is the best one!',
               },
             ]}
             isLoading={isLoading}
