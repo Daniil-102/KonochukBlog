@@ -61,7 +61,7 @@ export const Postt = ({
         />
       )}
       <div className={styles.wrapper}>
-        <UserInfo {...user} additionalText={() => formatDateTime(createdAt)} />
+        <UserInfo {...user} additionalText={() => formatDateTime(createdAt.toString())} />
         <div className={styles.indention}>
           <h2 className={clsx(styles.title, { [styles.titleFull]: isFullPost })}>
             {isFullPost ? title : <Link to={`/posts/${id}`}>{title}</Link>}
